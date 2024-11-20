@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício de formulário</title>
+    <link rel="shortcut icon" href="Fenda.jpg" type="image/x-icon">
+    <script>
+      document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+        alert("Inspeção desativada.");
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+          e.preventDefault();
+          alert("Inspeção desativada.");
+        }
+      });
+      console.log = function () {};
+      console.error = function () {};
+      console.warn = function () {};
+    </script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      form {
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+      fieldset {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        padding: 15px;
+      }
+      legend {
+        font-weight: bold;
+        padding: 0 10px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input,
+      select,
+      textarea,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button {
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Formulário de Registro</h1>
+    <form action="/submit" method="POST">
+      <!-- Dados Pessoais -->
+      <fieldset>
+        <legend>Dados Pessoais</legend>
+
+        <label for="nome">Nome Completo:</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          placeholder="Digite seu nome completo"
+          required
+        />
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Digite seu email"
+          required
+        />
+
+        <label for="telefone">Telefone:</label>
+        <input
+          type="tel"
+          id="telefone"
+          name="telefone"
+          placeholder="(XX) XXXXX-XXXX"
+        />
+      </fieldset>
+
+      <!-- Informações Adicionais -->
+      <fieldset>
+        <legend>Informações Adicionais</legend>
+
+        <label for="genero">Gênero:</label>
+        <select id="genero" name="genero" required>
+          <option value="" disabled selected>Selecione</option>
+          <option value="masculino">Masculino</option>
+          <option value="feminino">Feminino</option>
+          <option value="outro">Outro</option>
+        </select>
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea
+          id="mensagem"
+          name="mensagem"
+          rows="4"
+          placeholder="Digite sua mensagem aqui"
+        ></textarea>
+      </fieldset>
+
+      <!-- Preferências -->
+      <fieldset>
+        <legend>Preferências</legend>
+
+        <label>Deseja receber notificações?</label>
+        <input type="radio" id="sim" name="notificacoes" value="sim" required />
+        <label for="sim">Sim</label>
+
+        <input type="radio" id="nao" name="notificacoes" value="nao" />
+        <label for="nao">Não</label>
+      </fieldset>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </body>
+</html>
